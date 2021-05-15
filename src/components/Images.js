@@ -5,8 +5,8 @@ class Images extends Component {
     super(props)
     this.state = { interval: null }
   }
-  // component Mount
 
+  // component Mount
   componentDidMount() {
     console.log("Images Comp Mount")
     this.setState({
@@ -20,6 +20,11 @@ class Images extends Component {
     console.log("Images UnMounted")
     clearInterval(this.state.interval)
   }
+
+  componentDidUpdate() {
+    console.log("App Update")
+  }
+
   render() {
     return (
       <div>
