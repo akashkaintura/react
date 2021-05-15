@@ -22,18 +22,16 @@ class App extends React.Component {
   }
 
   // component Mount
-
   componentDidMount() {
     console.log("Mount")
-    this.setState({
-      title: "hello this is componenet mounted",
-    })
+    // this.setState({
+    //   title: "hello this is componenet mounted",
+    // })
   }
 
-  // component UnMount
-
-  componentWillUnmount() {
-    console.log("UnMount")
+  //component DidUpdate
+  componentDidUpdate() {
+    console.log("App Updated")
   }
 
   handleClick = () => {
