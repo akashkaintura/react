@@ -11,10 +11,24 @@ import "./assests/css/style.css"
 //     </div>
 //   )
 // }
+
+// class Based
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = { title: "Hello Akash", isShowing: false }
+    this.handleClick = this.handleClick.bind(this) //this is because if we want to use the normal funtion
+  }
+
+  // handleClick using Arrow
+  // It will work
+  // handleClick = () => {
+  //   this.setState({ isShowing: !this.state.isShowing })
+  // }
+
+  // using the normal function which will not work as the scope it is out  of scope
+  handleClick() {
+    this.setState({ isShowing: !this.state.isShowing })
   }
 
   render() {
@@ -26,9 +40,7 @@ class App extends React.Component {
             <div>
               <button
                 className="p-1 bg-blue-700 text-white my-2"
-                onClick={() =>
-                  this.setState({ isShowing: !this.state.isShowing })
-                }>
+                onClick={this.handleClick}>
                 Toggle Image
               </button>
             </div>
