@@ -22,14 +22,14 @@ class App extends React.Component {
 
   // handleClick using Arrow
   // It will work
-  // handleClick = () => {
-  //   this.setState({ isShowing: !this.state.isShowing })
-  // }
-
-  // using the normal function which will not work as the scope it is out  of scope
-  handleClick() {
+  handleClick = () => {
     this.setState({ isShowing: !this.state.isShowing })
   }
+
+  // using the normal function which will not work as the scope it is out  of scope
+  // handleClick() {
+  //   this.setState({ isShowing: !this.state.isShowing })
+  // }
 
   render() {
     return (
