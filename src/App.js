@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./assests/css/style.css"
 import Images from "./components/Images"
 function App() {
-  const [title, setTitle] = useState("hello Akash")
+  const [title, setTitle] = useState("This is the best one can learn from ")
   const [isShowing, setIsShowing] = useState(false)
 
   function handleClick() {
