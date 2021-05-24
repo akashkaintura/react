@@ -1,9 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./assests/css/style.css"
 import Images from "./components/Images"
 function App() {
   const [title, setTitle] = useState("This is the best one can learn from ")
   const [isShowing, setIsShowing] = useState(false)
+
+  useEffect(() => {
+    console.log("App Mounted")
+  }, [])
 
   function handleClick() {
     setIsShowing(!isShowing)
@@ -12,6 +16,7 @@ function App() {
   return (
     <section className=" flex justify-center">
       <div className="w-1/2">
+        {console.log("re-renderd")}
         <div className="text-center">
           <div className="my-4">{title}</div>
           <div>
