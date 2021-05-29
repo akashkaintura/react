@@ -13,7 +13,7 @@ export default function Images() {
   function ShowImage(params) {
     return images.map((image) => {
       return (
-        <div>
+        <div className="w-1/3">
           <img src={image} width="150px" alt="unsplash" />
         </div>
       )
@@ -29,7 +29,7 @@ export default function Images() {
 
   return (
     <section>
-      <div className="flex justify-center">
+      <div className="flex flex-wrap justify-center">
         <ShowImage />
       </div>
       <div className="flex justify-between my-5">
