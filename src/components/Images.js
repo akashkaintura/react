@@ -17,12 +17,16 @@ export default function Images() {
       return (
         <div className="w-1/3 my-4 flex justify-center " key={index}>
           <div className="relative">
-            <i className={crossClass} onClick={() => handleRemove(index)}></i>
+            <i
+              className={`fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100 ${
+                isHovering === index ? "" : "hidden"
+              }`}
+              onClick={() => handleRemove(index)}></i>
             <img
               src={image}
               width="150px"
               alt="unsplash"
-              onMouseEnter={() => setIsHovering(true)}
+              onMouseEnter={() => setIsHovering(index)}
               onMouseLeave={() => setIsHovering(false)}
             />
           </div>
@@ -32,7 +36,7 @@ export default function Images() {
   }
 
   function handleAdd() {
-    if (newImageUrl != "") {
+    if (newImageUrl !== "") {
       setImages([...images, newImageUrl])
       setNewImageUrl(" ")
     }
@@ -43,12 +47,6 @@ export default function Images() {
       ...Images.slice(0, index),
       ...Images.slice(index + 1, images.length),
     ])
-  }
-
-  function crossClass() {
-    return `fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100 ${
-      isHovering ? "" : "hidden"
-    }`
   }
 
   function handleChange(event) {
