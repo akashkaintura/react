@@ -36,7 +36,11 @@ export default function Images() {
 
   function handleRemove(index) {
     // console.log()
-    setImages(images.filter((image, i) => i !== index))
+    // setImages(images.filter((image, i) => i !== index))
+    setImages([
+      ...Images.slice(0, index),
+      ...Images.slice(index + 1, images.length),
+    ])
   }
 
   function handleChange(event) {
