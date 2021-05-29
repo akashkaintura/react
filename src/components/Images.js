@@ -20,7 +20,7 @@ export default function Images() {
             src={image}
             width="150px"
             alt="unsplash"
-            onClick={handleRemove}
+            onClick={() => handleRemove(index)}
           />
         </div>
       )
@@ -34,8 +34,9 @@ export default function Images() {
     }
   }
 
-  function handleRemove() {
-    console.log("Reaching")
+  function handleRemove(index) {
+    // console.log()
+    setImages(images.filter((image, i) => i !== index))
   }
 
   function handleChange(event) {
