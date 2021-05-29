@@ -3,11 +3,19 @@ import "./assests/css/style.css"
 import Images from "./components/Images"
 function App() {
   const [title, setTitle] = useState("This is the best one can learn from ")
-  const [isShowing, setIsShowing] = useState(false)
+  const [isShowing, setIsShowing] = useState(null)
+  const [didMount, setdidMount] = useState(false)
 
   useEffect(() => {
+    setdidMount(true)
     console.log("App Mounted")
   }, [])
+
+  useEffect(() => {
+    if (didMount) {
+      console.log("App Updated")
+    }
+  }, [isShowing])
 
   function handleClick() {
     setIsShowing(!isShowing)
