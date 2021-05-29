@@ -10,26 +10,20 @@ export default function Images() {
     "https://images.unsplash.com/photo-1622279240815-20a1d7449e40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=892&q=80",
   ]
 
-  console.log(
-    Images.map((image) => {
+  function ShowImage(params) {
+    return Images.map((image) => {
       return (
         <div>
           <img src={image} width="150px" alt="unsplash" />
         </div>
       )
     })
-  )
+  }
 
   return (
     <section>
-      <div class="flex justify-center">
-        {Images.map((image) => {
-          return (
-            <div>
-              <img src={image} width="150px" alt="unsplash" />
-            </div>
-          )
-        })}
+      <div className="flex justify-center">
+        <ShowImage />
       </div>
     </section>
   )
