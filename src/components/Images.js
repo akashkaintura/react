@@ -18,23 +18,22 @@ export default function Images() {
         <div className="w-1/3 my-4 flex justify-center " key={index}>
           <div className="relative">
             <i
-              className="fas fa-times absolute right-0 cursor-pointer opactity-30 hover:opacity-100"
+              className="fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100"
               onClick={() => handleRemove(index)}></i>
+            <img
+              src={image}
+              width="150px"
+              alt="unsplash"
+              onClick={() => handleRemove(index)}
+            />
           </div>
-
-          <img
-            src={image}
-            width="150px"
-            alt="unsplash"
-            onClick={() => handleRemove(index)}
-          />
         </div>
       )
     })
   }
 
   function handleAdd() {
-    if (newImageUrl !== "") {
+    if (newImageUrl != "") {
       setImages([...images, newImageUrl])
       setNewImageUrl(" ")
     }
