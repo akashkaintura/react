@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 export default function Images() {
   const [images, setImages] = useState([
@@ -21,14 +21,10 @@ export default function Images() {
   }
 
   function handleAdd() {
-    let temp = [...images]
-
-    temp.push(
-      "https://images.unsplash.com/photo-1621602071737-e267c09db65e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
-    )
-    console.log("working")
-
-    setImages(temp)
+    setImages([
+      ...images,
+      "https://images.unsplash.com/photo-1621602071737-e267c09db65e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
+    ])
   }
 
   return (
