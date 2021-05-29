@@ -10,6 +10,8 @@ export default function Images() {
     "https://images.unsplash.com/photo-1622279240815-20a1d7449e40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=892&q=80",
   ])
 
+  const [newImageUrl, setNewImage] = useState(null)
+
   function ShowImage(params) {
     return images.map((image) => {
       return (
@@ -21,10 +23,11 @@ export default function Images() {
   }
 
   function handleAdd() {
-    setImages([
-      ...images,
-      "https://images.unsplash.com/photo-1621602071737-e267c09db65e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
-    ])
+    setImages([...images, newImageUrl])
+  }
+
+  function handleChange(event) {
+    setNewImage(event.target.value)
   }
 
   return (
@@ -33,7 +36,11 @@ export default function Images() {
         <ShowImage />
       </div>
       <div className="flex justify-between my-5">
-        <input type="text" className="p-2 border-gray-800 shadow rounded" />
+        <input
+          type="text"
+          className="p-2 border-gray-800 shadow rounded"
+          onChange={handleChange}
+        />
         <button className="p-2 bg-green-600 text-white" onClick={handleAdd}>
           Add New
         </button>
