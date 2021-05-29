@@ -16,19 +16,16 @@ export default function Images() {
     return images.map((image, index) => {
       return (
         <div className="w-1/3 my-4 flex justify-center " key={index}>
-          <div className="relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setIsHovering(index)}
+            onMouseLeave={() => setIsHovering(false)}>
             <i
               className={`fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100 ${
                 isHovering === index ? "" : "hidden"
               }`}
               onClick={() => handleRemove(index)}></i>
-            <img
-              src={image}
-              width="150px"
-              alt="unsplash"
-              onMouseEnter={() => setIsHovering(index)}
-              onMouseLeave={() => setIsHovering(false)}
-            />
+            <img src={image} width="150px" alt="unsplash" />
           </div>
         </div>
       )
@@ -44,8 +41,8 @@ export default function Images() {
 
   function handleRemove(index) {
     setImages([
-      ...Images.slice(0, index),
-      ...Images.slice(index + 1, images.length),
+      ...images.slice(0, index),
+      ...images.slice(index + 1, images.length),
     ])
   }
 
