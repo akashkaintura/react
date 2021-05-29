@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import "./assests/css/style.css"
 import Images from "./components/Images"
 function App() {
@@ -6,14 +6,18 @@ function App() {
   const [isShowing, setIsShowing] = useState(null)
   const [didMount, setdidMount] = useState(false)
 
+  const mountRef = useRef(false)
+
   useEffect(() => {
     setdidMount(true)
     console.log("App Mounted")
   }, [])
 
   useEffect(() => {
-    if (didMount) {
+    if (mountRef.current) {
       console.log("App Updated")
+    } else {
+      mountRef.current = true
     }
   }, [isShowing])
 
