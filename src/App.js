@@ -8,11 +8,13 @@ function App() {
 
   const mountRef = useRef(false)
 
+  // component did Mount
   useEffect(() => {
     setdidMount(true)
     console.log("App Mounted")
   }, [])
 
+  // component will Update
   useEffect(() => {
     if (mountRef.current) {
       console.log("App Updated")
