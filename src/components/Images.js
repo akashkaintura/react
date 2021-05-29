@@ -11,20 +11,19 @@ export default function Images() {
   ])
 
   const [newImageUrl, setNewImageUrl] = useState("")
-
+  const [isHovering, setIsHovering] = useState(false)
   function ShowImage(params) {
     return images.map((image, index) => {
       return (
         <div className="w-1/3 my-4 flex justify-center " key={index}>
           <div className="relative">
-            <i
-              className="fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100"
-              onClick={() => handleRemove(index)}></i>
+            <i className={crossClass} onClick={() => handleRemove(index)}></i>
             <img
               src={image}
               width="150px"
               alt="unsplash"
-              onClick={() => handleRemove(index)}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
             />
           </div>
         </div>
@@ -40,12 +39,16 @@ export default function Images() {
   }
 
   function handleRemove(index) {
-    // console.log()
-    // setImages(images.filter((image, i) => i !== index))
     setImages([
       ...Images.slice(0, index),
       ...Images.slice(index + 1, images.length),
     ])
+  }
+
+  function crossClass() {
+    return `fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100 ${
+      isHovering ? "" : "hidden"
+    }`
   }
 
   function handleChange(event) {
