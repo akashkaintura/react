@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import Image from "./image"
 export default function Images() {
   const [images, setImages] = useState([
     "https://images.unsplash.com/photo-1622241944227-ae279379cc80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -11,25 +11,11 @@ export default function Images() {
   ])
 
   const [newImageUrl, setNewImageUrl] = useState("")
-  const [isHovering, setIsHovering] = useState(false)
-  function ShowImage(params) {
-    return images.map((image, index) => {
-      return (
-        <div className="w-1/3 my-4 flex justify-center " key={index}>
-          <div
-            className="relative"
-            onMouseEnter={() => setIsHovering(index)}
-            onMouseLeave={() => setIsHovering(false)}>
-            <i
-              className={`fas fa-times absolute right-0 cursor-pointer opactity-25 hover:opacity-100 ${
-                isHovering === index ? "" : "hidden"
-              }`}
-              onClick={() => handleRemove(index)}></i>
-            <img src={image} width="150px" alt="unsplash" />
-          </div>
-        </div>
-      )
-    })
+
+  function ShowImage() {
+    return images.map((img, index) => (
+      <Image image={img} handleRemove={handleRemove} index={index} />
+    ))
   }
 
   function handleAdd() {
