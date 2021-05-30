@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import Image from "./image"
 export default function Images() {
   const [images, setImages] = useState([
@@ -10,11 +10,22 @@ export default function Images() {
     "https://images.unsplash.com/photo-1622279240815-20a1d7449e40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=892&q=80",
   ])
 
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+
   const [newImageUrl, setNewImageUrl] = useState("")
 
   function ShowImage() {
     return images.map((img, index) => (
-      <Image image={img} handleRemove={handleRemove} index={index} />
+      <Image
+        image={img}
+        handleRemove={handleRemove}
+        index={index}
+        key={index}
+      />
     ))
   }
 
@@ -45,6 +56,8 @@ export default function Images() {
         <div className="w-full">
           <input
             type="text"
+            id="inputBox"
+            ref={inputRef}
             className="p-2 border-gray-800 shadow rounded w-full"
             value={newImageUrl}
             onChange={handleChange}
