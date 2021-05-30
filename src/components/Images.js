@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, Component } from "react"
 import Image from "./image"
 export default function Images() {
   const [images, setImages] = useState([
@@ -11,10 +11,20 @@ export default function Images() {
   ])
 
   const inputRef = useRef(null)
+  const varRef = useRef(images.length)
 
   useEffect(() => {
     inputRef.current.focus()
+    console.log(varRef)
   }, [])
+
+  // const [updateCount, setUpdateCount] = useState(0)
+
+  useEffect(() => {
+    varRef.current = varRef.current + 1
+    // setUpdateCount(updateCount + 1)
+    // console.log("count")
+  })
 
   const [newImageUrl, setNewImageUrl] = useState("")
 
@@ -49,6 +59,7 @@ export default function Images() {
 
   return (
     <section>
+      <p> component is Updated {varRef.current} times</p>
       <div className="flex flex-wrap justify-center">
         <ShowImage />
       </div>
